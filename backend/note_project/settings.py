@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 
 from pathlib import Path
 from datetime import timedelta
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -21,18 +22,17 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-n-3iek&*w^ogpo_(l#kw^hvn&i_z-&9(u$c-c4h3i==rr3^z*4'
+SECRET_KEY = os.getenv("VERY_SECRET_KEY", "VERY_SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = bool(os.getenv("DEBUG", default=1))
 
 ALLOWED_HOSTS = ["*"]
 
 CORS_ALLOWED_ORIGINS = [
-    'http://localhost:5500', ## Для локального тестирования
+    os.getenv("FRONTEND_URL", 'http://localhost:5500'),
+
     'http://127.0.0.1:5500', ## Для локального тестирования
-    'http://localhost',  # Для docker-compose
-    'http://frontend'    # Для docker-compose
 ]
 
 # Application definition
@@ -88,6 +88,14 @@ WSGI_APPLICATION = 'note_project.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
+
+
+DB_ENGINE = os.getenv("DB_ENGINE", "django.db.backends.sqlite3")
+DB_NAME = os.getenv("DB_NAME", BASE_DIR / "db.sqlite3")
+DB_USER = os.getenv("DB_USER", "user")
+DB_PASSWORD = os.getenv("PASSWORD", "pass")
+DB_HOST = os.getenv("DB_HOST", "localhost")
+DB_PORT = os.getenv("PORT", "5432")
 
 DATABASES = {
     'default': {
