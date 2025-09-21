@@ -30,7 +30,9 @@ ALLOWED_HOSTS = ["*"]
 
 CORS_ALLOWED_ORIGINS = [
     'http://localhost:5500', ## Для локального тестирования
-    'http://127.0.0.1:5500'
+    'http://127.0.0.1:5500', ## Для локального тестирования
+    'http://localhost',  # Для docker-compose
+    'http://frontend'    # Для docker-compose
 ]
 
 # Application definition
