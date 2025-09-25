@@ -53,8 +53,8 @@ NoteAppWithAuthorization/
 
 1. Клонируйте репозиторий:
 ```bash
-git https://github.com/SergeyR-172/Note-app-with-authorization-Django.git
-cd Note-app-with-authorization-Django
+git clone https://github.com/SergeyR-172/Django-Note-app-with-authorization.git
+cd Django-Note-app-with-authorization
 ```
 
 2. Создайте файл `.env` на основе `.env_example`:
@@ -83,8 +83,8 @@ docker-compose up --build
 
 2. Клонируйте репозиторий:
 ```bash
-git https://github.com/SergeyR-172/Note-app-with-authorization-Django.git
-cd Note-app-with-authorization-Django
+git clone https://github.com/SergeyR-172/Django-Note-app-with-authorization.git
+cd Django-Note-app-with-authorization
 ```
 
 3. Установите зависимости для бэкенда:
